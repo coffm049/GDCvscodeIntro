@@ -49,17 +49,62 @@ git push
 ```
 
 ## Adding first function to package
-1. Open a file under the R/ directory. Call it something with you name in it.
+1. Open a file under the R/ directory. Call it something with you name in it. You can do it manually or use usethis::use_r("filename")
 2. Create a random dataframe then a ggplot function to plot it 
 ```r
 library(tidyverse)
 
-df <- data.frame("a" = c(1,2,3,4),
-                 "b" = c(1,1,2,2))
+df <- data.frame("a" = rnorm(100),
+                 "b" = rgamma(100, 1))
 df %>% 
-    ggplot(aes(x = a, y =b ))
-    geom_point()
+    ggplot(aes(x = b)) +
+    geom_histogram()
+```
+
+## making it behave like a function
+Now that we have a working script, to treat it as a package, we need to make this a function, this is called "refactoring". With our extensions refactoring can be automated. Since R is a less common language, the refactoring is handled through copilot (as opposed to natively in RStudio). 
+1. Highlight the code. Right click and select "refactor".
+2. For copilot, tell it to "refactor as a function without any arguments" to generate the dataframe. And to refactor with b as an argument for the plotting function.
+3. Autoformat the file. Right click anywhere in the file and click "reformat document". This doesn't change any of the logic just how easy it is to read the code.
+
+Heres is what I ended up with
+```R
+create_df <- function() {
+    df <- data.frame(
+        "a" = rnorm(100),
+        "b" = rgamma(100, 1)
+    )
+    return(df)
+}
+
+
+
+plot_histogram <- function(data, x) {
+    data %>%
+        ggplot2::ggplot(aes(x = {{ x }})) +
+        ggplot2::geom_histogram()
+}
+```
+
+Note the explicit namespaces, which is necessary for functions within a package. I additionally had some automatic documentation written up for the histogram function by highlighting it and invoking copilot. I told it to write ROxygen2 documentation for the function and it gave me
+
+```R
+#' Plot a histogram
+#'
+#' This function takes in a data frame and a variable name and plots a histogram of the variable.
+#'
+#' @param data The data frame containing the variable of interest.
+#' @param x The name of the variable to be plotted.
+#'
+#' @return A histogram plot of the variable.
+#'
+#' @import ggplot2
+#'
+#' @examples
+#' data <- data.frame(x = rnorm(100))
+#' plot_histogram(data, x = "x")
+#'
 ```
 
 
-```
+Let's commit these changes to our branch.
