@@ -133,7 +133,21 @@ load_all()
 You will now see your functions are accessible.
 
 # Making a command line interface 
-... under construction...
+1. Make another directory in the package called "scripts". This won't be compiled into the R package, but are scripts you or other might find useful (i.e. Bash/SLURM scripts)
+2. make a file "run<name>function.R". I made a file that loads our functions, then finds the standard deviation of the random sample
+```r
+devtools::load_all()
+df <- create_df()
+print(sd(df$a))
+```
+3. Make a bash script to run this script from command line
+```bash
+module load R
+Rscript scripts/ChristianFunction.R
+```
+
+The plug-ins we added will especially aid in developing these bash scripts. We don't have time explore those, so maybe we'll save that for a future tutorial.
+
 # Making a SLURM script
 ... under construction...
 
