@@ -37,7 +37,29 @@ git switch <branch-name>
 ```R
 library(devtools)
 library(usethis)
-usethis::create_package()
+usethis::create_package(".")
 ```
-It is not standard to have a package within an already established repo so it will ask you if you are sure you want to create it and select "Yes". Since this is not a standard approach (usually you make the package then initiate the repo using "usethis::use_git()")
+NOTE: It is not standard to have a package within an already established repo so it will ask you if you are sure you want to create it and select "Yes". (usually you make the package then initiate the repo using "usethis::use_git()")
 
+4. Make your first commit for this branch. Go to the Source control tool on the left, click the "+" beside files you want to include in commit. Write your commit message then commit and push. This is equivalent to 
+```bash
+git add <files>
+git commit -m "commit message"
+git push
+```
+
+## Adding first function to package
+1. Open a file under the R/ directory. Call it something with you name in it.
+2. Create a random dataframe then a ggplot function to plot it 
+```r
+library(tidyverse)
+
+df <- data.frame("a" = c(1,2,3,4),
+                 "b" = c(1,1,2,2))
+df %>% 
+    ggplot(aes(x = a, y =b ))
+    geom_point()
+```
+
+
+```
