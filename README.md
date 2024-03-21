@@ -107,4 +107,33 @@ Note the explicit namespaces, which is necessary for functions within a package.
 ```
 
 
-Let's commit these changes to our branch.
+Let's commit these changes to our branch. 
+
+
+# Connecting to MSI
+[a semi-outdated video resource](https://www.youtube.com/watch?v=mJFl6mxFWRI)
+0. make sure you are on campus or on the VPN
+1. Make sure you've installed the "Remote Development" extension added
+2. Click the blue box that appears in the very bottom left corner of vscode.
+3. This opens a dialog box at the top of the screen. Select connect to Host...
+4. type "mesabi.msi.umn.edu" (note you can use Mangi etc. also here)
+5. Type your password
+6. Type 1 for authentication to get a push notification (2- chooses text, 3- chooses email)
+7. Congrats you're in! VScode will save the host id for future so you will just need to use a password and dual authenticate
+8. Since this is a new instance of VSCode (i.e. it's on MSI) you will need to reinstall your extensions
+9. Now, clone the repo we just made to MSI.
+10. Let's test if our package works well enough
+11. Checkout your branch. You should see the R package populate the file tree
+12. Open a terminal, then invoke R. (I haven't figured out a more convenient way to do this on Remote development)
+13. Load your package
+```r
+library(devtools)
+load_all()
+```
+You will now see your functions are accessible.
+
+# Making a command line interface 
+... under construction...
+# Making a SLURM script
+... under construction...
+
