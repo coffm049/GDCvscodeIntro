@@ -1,0 +1,158 @@
+---
+title: "Using VSCode for data science"
+author: "Christian Coffman"
+date: today
+format:
+    revealjs:
+        theme: blood
+        scrollable: true 
+execute:
+  cache: true
+toc: true
+toc-depth: 2
+slide-level: 3
+---
+
+## Infomercial intro
+- Have you ever 
+    - Struggled developing in multiple languages (given you know those languages)?
+    - Struggled developing remotely on MSI because your same tools to transfer over?
+    - Bonked your head on your car as you step out...
+    - etc.
+- Then you need:
+![VSCode](whyVScodePresentation_files/otherFigures/vscode.jpeg)
+
+
+## Why I switched 
+![](whyVScodePresentation_files/otherFigures/fallPhoto.jpg){fig-align="center"}
+
+- VSCode is your partner 
+
+### Why I switched
+- I've been getting more involved in data science style projects
+- Multiple Languages
+    - Each have their own IDE
+    - Loose fluency within each IDE
+    - Clunky switching
+    - Multiple terminals 
+```{r rplot}
+data <- rnorm(100)
+hist(data, main = "Histogram in R", xlab = "Data")
+```
+
+```{python pyplot}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random dataset
+data = np.random.randn(100)
+
+# Create a density plot
+plt.hist(data)
+
+# Display the plot
+plt.show()
+```
+
+```{julia juliaplot}
+using Plots
+
+# Generate a random dataset
+data = randn(100)
+
+# Create a histogram
+histogram(data, title = "Histogram in Julia", xlabel = "Data")
+```
+
+
+- Started using VSCode and NeoVim
+    - Learn one set of hotkeys/ buttons
+    - Less context switching between IDEs
+    - Integrates management level version control tools
+    - Integrates seemlessly with AI tools
+
+![Using GitHub Copilot to generate histogram code blocks](whyVScodePresentation_files/otherFigures/copilotScreenshot.png)
+
+    - Report writing integration
+![Hover over Quarto code to see image](whyVScodePresentation_files/otherFigures/floatOverQuartoImage.png)
+
+## RStudio vs VSCode
+
+| Feature | RStudio | VSCode |
+|---------|---------|--------|
+| Language Support | Primarily R | Most languages |
+| Integrated Terminal | Yes | Yes |
+| Git Integration | Yes | Yes |
+| Debugging | Yes | Yes |
+| Extensions | Limited | Extensive |
+| Customizability | Limited | High |
+| Cost | Free and Paid versions | Free |
+| Cross Platform | Yes | Yes |
+| AI plugins | Yes | Yes, very natural |
+| Version control GUI's | Minimal | Full featured |
+| Out of box | Ready to go (for R) | Takes more setup |
+
+
+
+## Summary: What I gained by switching?
+- Efficiency
+    - same editor for all languages
+- Learn what's out there (learn new things about current IDE)
+- Fun
+    - Improved reproducibility and standards enforcing 
+    - Do it with you friends!
+
+
+## Demos: Let me show you
+Now it's time to see some of these tools in action
+
+- refactoring tools
+  - Turn spaghetti code into code for reproducible research
+- Copilot
+  - Write bash commands more easily
+- remote connection
+  - Keep your same development environment on MSI!!
+
+## Opportunities at GDC
+![](whyVScodePresentation_files/otherFigures/GDCLogo.jpg)
+
+- Masonic Institute for the Developing Brain
+- Genomics Data Commons
+- Lot's of collaboraktive projects
+    - Emphasizes reproducibility
+    - SWE tools help!
+- Bi-weekly developers meetings
+    - Research topics
+    - SWE best practices (Skill sharing)
+    - Works in progress (WIP)
+    - Code Review
+    - Visiting faculty presentations
+- Journal club
+- [Training grant funding](https://genomicstraining.cbs.umn.edu/) (Application: Deadline May 1)
+    - [Faculty mentors](https://genomicstraining.cbs.umn.edu/faculty-mentors)
+
+### [GDC projects](https://github.com/UMN-GDC)
+- Standardizing QC processes
+    - 3 developers
+- Stat methods tools 
+    - 4 developers 
+
+
+## Summary
+- VSCode can help 
+    - Multiple languages
+    - Remove development
+    - Other extensions (AI integration, version control, etc)
+    - I've only spent a couple monthes, so probalby many more features I don't know
+- MIDB/GDC is a great place to practice SWE skills!
+
+### Turn your workflow upside down with VSCode
+
+![](whyVScodePresentation_files/otherFigures/upsideDown.jpg){fig-align="center"}
+
+
+### Definitions
+- IDE - **I**ntegrated **D**evelopment **E**nvironment
+- LSP - **L**anguage **S**erver **P**rotocol
+- UI - **U**ser **I**nterface 
+
